@@ -1,4 +1,5 @@
 import AddMealForm from './components/AddMealForm';
+import RecentMeals from './components/RecentMeals';
 
 export default function Home() {
   return (
@@ -7,11 +8,14 @@ export default function Home() {
         <h1 className="text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50 mb-8">
           Meals
         </h1>
-        <div className="w-full">
-          <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-6">
-            Add a New Meal
-          </h2>
-          <AddMealForm />
+        <div className="w-full space-y-12">
+          <RecentMeals />
+          <div>
+            <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-6">
+              Add a New Meal
+            </h2>
+            <AddMealForm />
+          </div>
         </div>
       </main>
     </div>
