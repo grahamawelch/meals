@@ -1,0 +1,17 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: npm install
+      - name: Type Check (The "Does it Build" test)
+        run: npx tsc --noEmit
+      - name: Lint Check
+        run: npm run lint
+      - name: Build Check
+        run: npm run build
+
