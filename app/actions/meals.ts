@@ -9,9 +9,15 @@ export interface Meal {
   created_at: string;
 }
 
+interface MealsTable {
+  Row: Meal;
+  Insert: { name: string };
+  Update: { name?: string };
+}
+
 export async function getRecentMeals(limit = 5): Promise<Meal[]> {
   const { data, error } = await supabase
-    .from<Meal>('meals')
+    .from<'meals', MealsTable>('meals')
     .select('*')
     .order('created_at', { ascending: false })
     .limit(limit);
@@ -33,7 +39,7 @@ export async function addMeal(formData: FormData) {
   const trimmed = name.trim();
 
   const { data, error } = await supabase
-    .from<Meal>('meals')
+    .from<'meals', MealsTable>('meals')
     .insert({ name: trimmed })
     .select()
     .single();
@@ -50,4 +56,3 @@ export async function addMeal(formData: FormData) {
 
   return data;
 }
-
