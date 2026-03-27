@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Our Meals",
+  title: "Our Meals!!",
   description: "Track your meals!",
 };
 
